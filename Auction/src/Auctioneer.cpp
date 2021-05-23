@@ -1,5 +1,11 @@
+#include <iostream>
 #include <algorithm>
 #include "Auctioneer.h"
+
+Auctioneer::Auctioneer()
+{
+	std::cout << "Creating a new auctioneer" << std::endl;
+}
 
 void Auctioneer::Evaluate(Auction auction)
 {

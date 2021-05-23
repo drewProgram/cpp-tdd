@@ -13,6 +13,8 @@ private:
 	static bool OrderBids(const Bid&, const Bid&);
 
 public:
+	Auctioneer();
+
 	void Evaluate(Auction);
 
 	float GetHighestValue() const;
