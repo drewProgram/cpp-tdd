@@ -1,5 +1,5 @@
-#ifndef User_h
-#define User_h
+#pragma once
+
 #include <string>
 
 class User
@@ -10,5 +10,3 @@ public:
     User(std::string);
     std::string GetName() const;
 };
-
-#endif /* User_h */

@@ -10,7 +10,7 @@ const std::vector<Bid>& Auction::GetBids() const
     return bids;
 }
 
-void Auction::ReceiveBid(const Bid& bid)
+void Auction::SetBids(const Bid& bid)
 {
     bids.push_back(bid);
 }

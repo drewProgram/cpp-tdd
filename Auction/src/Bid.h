@@ -1,5 +1,5 @@
-#ifndef Bid_h
-#define Bid_h
+#pragma once
+
 #include "User.h"
 
 class Bid
@@ -11,5 +11,3 @@ public:
     Bid(User user, float value);
     float GetValue() const;
 };
-
-#endif /* Bid_h */

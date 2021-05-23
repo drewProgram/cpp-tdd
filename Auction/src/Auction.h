@@ -1,5 +1,3 @@
-#ifndef Auction_h
-#define Auction_h
 #include <vector>
 #include <string>
 #include "Bid.h"
@@ -11,8 +9,7 @@ private:
     std::string description;
 public:
     Auction(std::string description);
-    const std::vector<Bid>& GetBids() const;
-    void ReceiveBid(const Bid& bid);
-};
 
-#endif /* Leilao_hpp */
+    const std::vector<Bid>& GetBids() const;
+    void SetBids(const Bid& bid);
+};
