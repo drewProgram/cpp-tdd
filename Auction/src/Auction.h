@@ -11,5 +11,5 @@ public:
     Auction(std::string description);
 
     const std::vector<Bid>& GetBids() const;
-    void SetBids(const Bid& bid);
+    void SetBid(const Bid& bid);
 };

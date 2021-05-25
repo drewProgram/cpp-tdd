@@ -16,10 +16,11 @@
 Auction AscendingOrder()
 {
 	Bid firstBid(User("Andrew"), 1000.0f);
+	std::cout << "The user name is " << firstBid.GetUsername() << std::endl;
 	Bid secondBid(User("Lorena"), 2000.0f);
 	Auction auction("Predator Helios 300");
-	auction.SetBids(firstBid);
-	auction.SetBids(secondBid);
+	auction.SetBid(firstBid);
+	auction.SetBid(secondBid);
 
 	return auction;
 }
@@ -29,8 +30,8 @@ Auction DescendingOrder()
 	Bid firstBid(User("Andrew"), 2000.0f);
 	Bid secondBid(User("Lorena"), 1000.0f);
 	Auction auction("Predator Helios 300");
-	auction.SetBids(firstBid);
-	auction.SetBids(secondBid);
+	auction.SetBid(firstBid);
+	auction.SetBid(secondBid);
 
 	return auction;
 }
@@ -89,10 +90,10 @@ TEST_CASE("Auctioneer")
 		Bid fourthBid(User("Daniela"), 4000.0f);
 
 		Auction auction("Predator Helios 300");
-		auction.SetBids(firstBid);
-		auction.SetBids(secondBid);
-		auction.SetBids(thirdBid);
-		auction.SetBids(fourthBid);
+		auction.SetBid(firstBid);
+		auction.SetBid(secondBid);
+		auction.SetBid(thirdBid);
+		auction.SetBid(fourthBid);
 
 		// Act - When
 		auctioneer.Evaluate(auction);
@@ -100,8 +101,35 @@ TEST_CASE("Auctioneer")
 		// Assert - Then
 		auto threeHighestBids = auctioneer.GetThreeHighestBids();
 		REQUIRE(threeHighestBids.size() == 3);
-		REQUIRE(threeHighestBids[0].GetValue() == 4000);
-		REQUIRE(threeHighestBids[1].GetValue() == 2000);
-		REQUIRE(threeHighestBids[2].GetValue() == 1500);
+		REQUIRE(threeHighestBids[0].GetValue() == 4000.0f);
+		REQUIRE(threeHighestBids[1].GetValue() == 2000.0f);
+		REQUIRE(threeHighestBids[2].GetValue() == 1500.0f);
 	}
 }
+
+TEST_CASE("Auction shouldn't receive consecutive bids from the same user")
+{
+	// Arrange
+	Auction auction("Predator Helios 300");
+	User user("Andrew");
+
+	Bid firstBid(user, 1000.0f);
+	Bid secondBid(user, 2000.0f);
+
+	// Act
+	auction.SetBid(firstBid);
+	auction.SetBid(secondBid);
+
+	// Assert
+	REQUIRE(auction.GetBids().size() == 1);
+	REQUIRE(auction.GetBids()[0].GetValue() == 1000.0f);
+}
+
+//TEST_CASE("User should inform your first name")
+//{
+//	User andrew("Andrew Filgueiras");
+//
+//	std::string firstName = andrew.GetFirstName();
+//
+//	REQUIRE("Andrew" == firstName);
+//}

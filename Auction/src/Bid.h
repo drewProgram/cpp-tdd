@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include "User.h"
 
 class Bid
@@ -9,5 +10,7 @@ private:
     float value;
 public:
     Bid(User user, float value);
+
     float GetValue() const;
+    std::string GetUsername() const;
 };

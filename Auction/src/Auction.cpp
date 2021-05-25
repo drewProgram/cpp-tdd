@@ -2,7 +2,6 @@
 
 Auction::Auction(std::string description) : description(description)
 {
-    
 }
 
 const std::vector<Bid>& Auction::GetBids() const
@@ -10,7 +9,10 @@ const std::vector<Bid>& Auction::GetBids() const
     return bids;
 }
 
-void Auction::SetBids(const Bid& bid)
+void Auction::SetBid(const Bid& bid)
 {
-    bids.push_back(bid);
+    if (bids.size() == 0 || bids.back().GetUsername() != bid.GetUsername())
+    {
+        bids.push_back(bid);
+    }
 }

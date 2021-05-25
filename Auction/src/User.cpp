@@ -1,6 +1,6 @@
 #include "User.h"
 
-User::User(std::string) : name(name)
+User::User(std::string name) : name(name)
 {
 }
 

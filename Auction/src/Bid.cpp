@@ -8,3 +8,8 @@ float Bid::GetValue() const
 {
     return value;
 }
+
+std::string Bid::GetUsername() const
+{
+    return user.GetName();
+}
