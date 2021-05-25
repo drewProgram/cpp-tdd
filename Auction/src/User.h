@@ -9,4 +9,5 @@ private:
 public:
     User(std::string);
     std::string GetName() const;
+    std::string GetFirstName() const;
 };

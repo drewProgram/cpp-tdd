@@ -44,7 +44,16 @@
     <ClCompile Include="src\Auctioneer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tests\AuctioneerTest.cpp">
+    <ClCompile Include="tests\main-test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\auction-test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\auctioneer-test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="tests\user-test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

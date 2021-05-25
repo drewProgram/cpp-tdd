@@ -1,13 +1,10 @@
-// catch2 macro
-#define CATCH_CONFIG_MAIN
-
 #include <iostream>
 #include "../src/Auctioneer.h"
 #include "Catch.h"
 
 /*
 * ARRANGE ACT ASSERT (Triple A)
-* 
+*
 * 1. Arrange all necessary preconditions and inputs.
 * 2. Act on the object or method under test.
 * 3. Assert that the expected results have occurred.
@@ -106,30 +103,3 @@ TEST_CASE("Auctioneer")
 		REQUIRE(threeHighestBids[2].GetValue() == 1500.0f);
 	}
 }
-
-TEST_CASE("Auction shouldn't receive consecutive bids from the same user")
-{
-	// Arrange
-	Auction auction("Predator Helios 300");
-	User user("Andrew");
-
-	Bid firstBid(user, 1000.0f);
-	Bid secondBid(user, 2000.0f);
-
-	// Act
-	auction.SetBid(firstBid);
-	auction.SetBid(secondBid);
-
-	// Assert
-	REQUIRE(auction.GetBids().size() == 1);
-	REQUIRE(auction.GetBids()[0].GetValue() == 1000.0f);
-}
-
-//TEST_CASE("User should inform your first name")
-//{
-//	User andrew("Andrew Filgueiras");
-//
-//	std::string firstName = andrew.GetFirstName();
-//
-//	REQUIRE("Andrew" == firstName);
-//}
